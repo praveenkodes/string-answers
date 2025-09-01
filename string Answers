@@ -21,6 +21,7 @@ class Solution:
         for i in mat:
             print(i)
 
+
 #Finding valid ip Address
 class Solution:
     def isValid(self, s: str) -> bool:
@@ -32,7 +33,7 @@ class Solution:
             if not self.isIp(p):
                 return False
         return True
-
+    
     def isIp(self, s: str) -> bool:
         n = len(s)
         if n == 0:
@@ -43,4 +44,31 @@ class Solution:
             return False
         val = int(s)
         return 0 <= val <= 255
+
+
+#sum of two Strings
+class Solution:
+    def findSum(self, s1, s2):
+    a,b=len(s1),len(s2)
+    carry=0
+    s=""
+    i,j=a-1,b-1
+    
+    while (i>=0 or j>=0 or carry==1):
+        n1=ord(s1[i])-ord('0') if i>=0 else 0
+        n2=ord(s2[j])-ord('0') if j>=0 else 0
+        
+        sums=n1+n2+carry
+        s=str(sums%10)+s
+        carry=(sums//10)
+        i-=1
+        j-=1
+    k=0
+    while(k<len(s)-1 and s[k]=='0'):
+        k+=1
+    return s[k:]
+    	
+    	
+    	
+    	
 
