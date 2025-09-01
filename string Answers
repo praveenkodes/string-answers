@@ -21,3 +21,26 @@ class Solution:
         for i in mat:
             print(i)
 
+#Finding valid ip Address
+class Solution:
+    def isValid(self, s: str) -> bool:
+        parts = s.split(".")
+        n = len(parts)
+        if n != 4:
+            return False
+        for p in parts:
+            if not self.isIp(p):
+                return False
+        return True
+
+    def isIp(self, s: str) -> bool:
+        n = len(s)
+        if n == 0:
+            return False
+        if s[0] == '0' and n != 1:
+            return False
+        if not s.isdigit():
+            return False
+        val = int(s)
+        return 0 <= val <= 255
+
